@@ -7,7 +7,7 @@
   <style>
     :root{--bg:#07111f;--panel:#162232;--panel2:#1d2a3c;--text:#f6f8fb;--muted:#aebbd0;--line:#304057;--accent:#4ee0a1;--accent2:#7dd3fc;--danger:#fb7185;--warn:#fbbf24;--shadow:0 20px 70px rgba(0,0,0,.35);--radius:24px}
     *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top,#13223a 0,#07111f 45%,#050b14 100%);color:var(--text);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
-    .wrap{max-width:1280px;margin:0 auto;padding:28px 22px 60px}.hero{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:28px;align-items:center;padding:34px;border:1px solid var(--line);border-radius:32px;background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.035));box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"⚽";position:absolute;right:310px;top:12px;font-size:110px;opacity:.06}.eyebrow{color:var(--accent);font-weight:900;letter-spacing:.2em;font-size:12px;text-transform:uppercase}.hero h1{font-size:clamp(42px,7vw,86px);line-height:.95;margin:18px 0 22px;letter-spacing:-.06em}.hero p{color:var(--muted);font-size:18px;max-width:850px}.score-card{background:linear-gradient(160deg,rgba(78,224,161,.25),rgba(125,211,252,.14));border:1px solid rgba(255,255,255,.13);border-radius:28px;text-align:center;padding:24px}.big-num{font-size:72px;font-weight:1000;line-height:1}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0;padding:10px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px}.tab{border:0;background:transparent;color:var(--muted);padding:14px 20px;border-radius:999px;font-weight:850;cursor:pointer}.tab.active{background:var(--accent);color:#061017}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel{background:rgba(22,34,50,.88);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 12px 40px rgba(0,0,0,.18)}.panel.soft{background:linear-gradient(135deg,rgba(78,224,161,.18),rgba(125,211,252,.1))}.section{display:none}.section.active{display:block}.label,.small-title{display:block;margin:14px 0 7px;color:#d9e3f3;font-weight:800}.hint{color:var(--muted);font-size:14px}.small-title{color:var(--accent);letter-spacing:.16em;text-transform:uppercase;font-size:12px}h2,h3{line-height:1.1;margin:6px 0 16px}h2{font-size:34px;letter-spacing:-.03em}h3{font-size:24px}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}input,select,textarea{width:100%;border:1px solid #3b4d66;border-radius:15px;background:#0b1524;color:var(--text);padding:13px 14px;font:inherit;outline:none}textarea{min-height:94px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(78,224,161,.14)}button,.btn{border:0;border-radius:16px;padding:13px 18px;font-weight:900;cursor:pointer;background:#263449;color:var(--text);display:inline-flex;align-items:center;gap:8px;justify-content:center;text-decoration:none}.btn.primary,button.primary{background:var(--accent);color:#061017}.btn.warn{background:var(--warn);color:#1a1200}.btn.danger{background:var(--danger);color:white}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.status{margin-top:14px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:#0a1320;color:var(--muted);white-space:pre-wrap}.status.ok{border-color:rgba(78,224,161,.55);color:#b7f7dc}.status.bad{border-color:rgba(251,113,133,.65);color:#ffc5cf}.status.warn{border-color:rgba(251,191,36,.65);color:#ffe3a3}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;margin-top:14px}table{width:100%;border-collapse:collapse;min-width:840px}th,td{padding:12px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:12px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;background:#101a29}tr:last-child td{border-bottom:0}.pill{display:inline-flex;padding:4px 9px;border-radius:999px;background:#25364c;color:#cdd8ec;font-size:12px;font-weight:800}.leader{font-weight:950;color:var(--accent)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.stat{background:#0b1524;border:1px solid var(--line);border-radius:18px;padding:18px}.stat b{font-size:28px}.team-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.team-chip{border:1px solid var(--line);border-radius:14px;padding:10px;background:#0b1524}.copybox{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;background:#050b14;border:1px solid var(--line);border-radius:15px;padding:12px;word-break:break-all;color:#bfdbfe}.footer{text-align:center;color:var(--muted);margin-top:28px}.sep{height:1px;background:var(--line);margin:22px 0}.hidden{display:none!important}@media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.hero{padding:26px}.score-card{max-width:none}.row,.row3{grid-template-columns:1fr}.cards,.team-list{grid-template-columns:1fr 1fr}.tabs{border-radius:22px}.tab{flex:1 1 auto}}@media(max-width:560px){.cards,.team-list{grid-template-columns:1fr}.hero h1{font-size:42px}.wrap{padding:16px 12px 40px}.panel{padding:18px}}
+    .wrap{max-width:1280px;margin:0 auto;padding:28px 22px 60px}.hero{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:28px;align-items:center;padding:34px;border:1px solid var(--line);border-radius:32px;background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.035));box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"⚽";position:absolute;right:310px;top:12px;font-size:110px;opacity:.06}.eyebrow{color:var(--accent);font-weight:900;letter-spacing:.2em;font-size:12px;text-transform:uppercase}.hero h1{font-size:clamp(42px,7vw,86px);line-height:.95;margin:18px 0 22px;letter-spacing:-.06em}.hero p{color:var(--muted);font-size:18px;max-width:850px}.score-card{background:linear-gradient(160deg,rgba(78,224,161,.25),rgba(125,211,252,.14));border:1px solid rgba(255,255,255,.13);border-radius:28px;text-align:center;padding:24px}.big-num{font-size:72px;font-weight:1000;line-height:1}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0;padding:10px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px}.tab{border:0;background:transparent;color:var(--muted);padding:14px 20px;border-radius:999px;font-weight:850;cursor:pointer}.tab.active{background:var(--accent);color:#061017}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel{background:rgba(22,34,50,.88);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 12px 40px rgba(0,0,0,.18)}.panel.soft{background:linear-gradient(135deg,rgba(78,224,161,.18),rgba(125,211,252,.1))}.section{display:none}.section.active{display:block}.label,.small-title{display:block;margin:14px 0 7px;color:#d9e3f3;font-weight:800}.hint{color:var(--muted);font-size:14px}.small-title{color:var(--accent);letter-spacing:.16em;text-transform:uppercase;font-size:12px}h2,h3{line-height:1.1;margin:6px 0 16px}h2{font-size:34px;letter-spacing:-.03em}h3{font-size:24px}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}input,select,textarea{width:100%;border:1px solid #3b4d66;border-radius:15px;background:#0b1524;color:var(--text);padding:13px 14px;font:inherit;outline:none}textarea{min-height:94px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(78,224,161,.14)}button,.btn{border:0;border-radius:16px;padding:13px 18px;font-weight:900;cursor:pointer;background:#263449;color:var(--text);display:inline-flex;align-items:center;gap:8px;justify-content:center;text-decoration:none}.btn.mini,button.mini{padding:8px 11px;border-radius:12px;font-size:13px}.btn.primary,button.primary{background:var(--accent);color:#061017}.btn.warn{background:var(--warn);color:#1a1200}.btn.danger{background:var(--danger);color:white}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.status{margin-top:14px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:#0a1320;color:var(--muted);white-space:pre-wrap}.status.ok{border-color:rgba(78,224,161,.55);color:#b7f7dc}.status.bad{border-color:rgba(251,113,133,.65);color:#ffc5cf}.status.warn{border-color:rgba(251,191,36,.65);color:#ffe3a3}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;margin-top:14px}table{width:100%;border-collapse:collapse;min-width:840px}th,td{padding:12px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:12px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;background:#101a29}tr:last-child td{border-bottom:0}.pill{display:inline-flex;padding:4px 9px;border-radius:999px;background:#25364c;color:#cdd8ec;font-size:12px;font-weight:800}.leader{font-weight:950;color:var(--accent)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.stat{background:#0b1524;border:1px solid var(--line);border-radius:18px;padding:18px}.stat b{font-size:28px}.team-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.team-chip{border:1px solid var(--line);border-radius:14px;padding:10px;background:#0b1524}.copybox{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;background:#050b14;border:1px solid var(--line);border-radius:15px;padding:12px;word-break:break-all;color:#bfdbfe}.footer{text-align:center;color:var(--muted);margin-top:28px}.sep{height:1px;background:var(--line);margin:22px 0}.hidden{display:none!important}@media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.hero{padding:26px}.score-card{max-width:none}.row,.row3{grid-template-columns:1fr}.cards,.team-list{grid-template-columns:1fr 1fr}.tabs{border-radius:22px}.tab{flex:1 1 auto}}@media(max-width:560px){.cards,.team-list{grid-template-columns:1fr}.hero h1{font-size:42px}.wrap{padding:16px 12px 40px}.panel{padding:18px}}
 
     .qr-share{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;align-items:center;margin-top:16px;border:1px solid var(--line);border-radius:18px;padding:14px;background:rgba(5,11,20,.42)}
     .qr-frame{width:180px;height:180px;border-radius:18px;background:#fff;padding:12px;display:flex;align-items:center;justify-content:center}
@@ -65,7 +65,8 @@
   <section id="submit" class="section">
     <div class="panel">
       <div class="small-title">Friend Submission</div><h2>Submit your picks</h2>
-      <p class="hint">Each friend can submit once. If the same name/contact submits again, the same entry will be updated instead of duplicated.</p>
+      <p class="hint">Each friend can submit once. If the same name/contact submits again inside the same group, the same entry will be updated instead of duplicated.</p>
+      <div id="groupBanner" class="status ok">Group: Main Group</div>
       <form id="pickForm">
         <div class="row">
           <div><label class="label">Your name *</label><input id="playerName" required placeholder="e.g. Thiha" /></div>
@@ -101,7 +102,7 @@
   <section id="participants" class="section">
     <div class="panel">
       <div class="small-title">Joined players</div><h2>Participants</h2>
-      <div class="actions"><button class="primary" id="loadParticipantsBtn">Refresh Participants</button><button class="admin-only" id="exportCsvBtn">Export CSV</button><button class="admin-only hidden" id="exportJsonBtn" type="button">Export JSON</button></div>
+      <div class="actions"><button class="primary" id="loadParticipantsBtn">Refresh Participants</button><label class="admin-only btn ghost mini"><input id="allGroupsToggle" type="checkbox" style="width:auto;margin:0"> Show all groups</label><button class="admin-only" id="exportCsvBtn">Export CSV</button><button class="admin-only hidden" id="exportJsonBtn" type="button">Export JSON</button></div>
       <div id="participantsStatus" class="status">No data loaded yet.</div>
       <div id="participantsTable" class="table-wrap hidden"></div>
     </div>
@@ -160,13 +161,18 @@
         <div class="small-title">Google Sheets Connection</div><h2>Setup database</h2>
         <label class="label">Apps Script Web App URL</label><input id="endpoint" placeholder="https://script.google.com/macros/s/.../exec" />
         <label class="label">Game Code</label><input id="gameCode" placeholder="Must match GAME_CODE in Code.gs" />
+        <div class="row">
+          <div><label class="label">Current group name</label><input id="groupName" placeholder="e.g. MTF Friends" /></div>
+          <div><label class="label">Group code</label><input id="groupCode" placeholder="e.g. MTF" /></div>
+        </div>
+        <p class="hint">Each group gets its own friend link and QR code. Existing old entries are kept under Main Group / MAIN.</p>
         <label class="label">Admin PIN</label><input id="settingsAdminPin" type="password" placeholder="Optional on this device only" />
         <div class="actions"><button class="primary" id="saveSettingsBtn">Save settings</button><button id="testBtn">Test connection</button><button id="clearSettingsBtn">Clear local settings</button></div>
         <div id="settingsStatus" class="status">Paste your Web App URL after deploying Google Apps Script.</div>
       </div>
       <div class="panel soft">
         <div class="small-title">Share Link</div><h2>Friend link</h2>
-        <p>The friend link contains the Web App URL and game code so friends do not need to configure Settings.</p>
+        <p>The friend link contains the Web App URL, game code, and group code so friends join the correct group automatically.</p>
         <div class="actions"><button class="primary" id="copyFriendLinkBtn">Copy friend link</button><button id="copyAdminLinkBtn">Copy admin link</button></div>
         <p class="hint">Admin link includes your admin PIN in the URL hash. Use it only on your own devices.</p>
         <div class="copybox" id="shareBox">Save settings first.</div>
@@ -183,7 +189,7 @@
         </div>
       </div>
     </div>
-    <div class="panel" style="margin-top:22px"><div class="small-title">Danger zone</div><h2>Clear all submitted picks</h2><p class="hint">This clears rows in the Google Sheet Picks tab. It does not delete the sheet.</p><div class="actions"><button class="danger" id="clearPicksBtn">Clear all picks</button></div><div id="dangerStatus" class="status">Use only for testing before sharing with friends.</div></div>
+    <div class="panel" style="margin-top:22px"><div class="small-title">Danger zone</div><h2>Clear current group picks</h2><p class="hint">This clears only the current group rows in the Google Sheet Picks tab. It does not delete the sheet or other groups.</p><div class="actions"><button class="danger" id="clearPicksBtn">Clear current group picks</button></div><div id="dangerStatus" class="status">Use only for testing before sharing with friends.</div></div>
   </section>
 
   <datalist id="playersList"></datalist><datalist id="goalkeepersList"></datalist>
@@ -249,6 +255,7 @@
   const DEFAULT_POINTS = {champion:40,runnerUp:30,thirdPlace:15,fourthPlace:10,goldenBoot:20,goldenBall:15,goldenGlove:12,mostAssists:12,highestScoringTeam:12,darkHorse:10,finalScore:10};
   const POINT_LABELS = {champion:'Champion',runnerUp:'Runner-up',thirdPlace:'Third place',fourthPlace:'Fourth place',goldenBoot:'Golden Boot',goldenBall:'Golden Ball',goldenGlove:'Golden Glove',mostAssists:'Most assists',highestScoringTeam:'Highest scoring team',darkHorse:'Dark horse',finalScore:'Exact final score'};
   const state = {picks:[], results:{}, points:{...DEFAULT_POINTS}};
+  const DEFAULT_GROUP = {groupName:'Main Group', groupCode:'MAIN'};
   const $ = id => document.getElementById(id);
   const qsa = s => [...document.querySelectorAll(s)];
 
@@ -263,6 +270,7 @@
     $('pickForm').addEventListener('submit', submitPick);
     $('resetFormBtn').addEventListener('click', () => $('pickForm').reset());
     $('loadParticipantsBtn').addEventListener('click', loadPicks);
+    $('participantsTable').addEventListener('click', onParticipantsClick);
     $('dashLoadBtn').addEventListener('click', loadPicks);
     if($('exportCsvBtn')) $('exportCsvBtn').addEventListener('click', exportCsv);
     if($('exportJsonBtn')) $('exportJsonBtn').addEventListener('click', exportJson);
@@ -278,6 +286,7 @@
     $('copyShareMessageBtn').addEventListener('click', copyShareMessage);
     $('clearPicksBtn').addEventListener('click', clearPicks);
     $('copySummaryBtn').addEventListener('click', copySummary);
+    if($('allGroupsToggle')) $('allGroupsToggle').addEventListener('change', () => loadPicks(true));
   }
 
   function showTab(tab){
@@ -319,22 +328,22 @@
     if(!admin && active && ['settings','results','database'].includes(active.id)) showTab('dashboard');
   }
 
-  function getCfg(){ return {endpoint:localStorage.getItem('wcg_endpoint')||'', gameCode:localStorage.getItem('wcg_gameCode')||'', adminPin:localStorage.getItem('wcg_adminPin')||''}; }
-  function loadLocal(){ const cfg=getCfg(); $('endpoint').value=cfg.endpoint; $('gameCode').value=cfg.gameCode; $('adminPin').value=cfg.adminPin; $('settingsAdminPin').value=cfg.adminPin; try{ const p=JSON.parse(localStorage.getItem('wcg_points')||'null'); if(p) state.points={...DEFAULT_POINTS,...p}; }catch(e){} }
+  function getCfg(){ return {endpoint:localStorage.getItem('wcg_endpoint')||'', gameCode:localStorage.getItem('wcg_gameCode')||'', adminPin:localStorage.getItem('wcg_adminPin')||'', groupName:localStorage.getItem('wcg_groupName')||DEFAULT_GROUP.groupName, groupCode:normalizeGroupCode(localStorage.getItem('wcg_groupCode')||DEFAULT_GROUP.groupCode)}; }
+  function loadLocal(){ const cfg=getCfg(); $('endpoint').value=cfg.endpoint; $('gameCode').value=cfg.gameCode; $('adminPin').value=cfg.adminPin; $('settingsAdminPin').value=cfg.adminPin; if($('groupName')) $('groupName').value=cfg.groupName; if($('groupCode')) $('groupCode').value=cfg.groupCode; try{ const p=JSON.parse(localStorage.getItem('wcg_points')||'null'); if(p) state.points={...DEFAULT_POINTS,...p}; }catch(e){} updateGroupUI(); }
   function savePoints(){ localStorage.setItem('wcg_points',JSON.stringify(state.points)); }
-  function saveSettings(){ const endpoint=$('endpoint').value.trim(); const gameCode=$('gameCode').value.trim(); const adminPin=$('settingsAdminPin').value.trim(); localStorage.setItem('wcg_endpoint',endpoint); localStorage.setItem('wcg_gameCode',gameCode); localStorage.setItem('wcg_adminPin',adminPin); $('adminPin').value=adminPin; setStatus('settingsStatus','Saved. Now click Test connection.','ok'); applyAccessMode(); showShareLinks(); updateHero(); }
-  function clearSettings(){ ['wcg_endpoint','wcg_gameCode','wcg_adminPin'].forEach(k=>localStorage.removeItem(k)); $('endpoint').value=$('gameCode').value=$('adminPin').value=$('settingsAdminPin').value=''; setStatus('settingsStatus','Local settings cleared.','warn'); applyAccessMode(); showShareLinks(); updateHero(); }
-  function parseSetupHash(){ const m = location.hash.match(/setup=([^&]+)/); if(!m) return; try{ const cfg = JSON.parse(decodeBase64Url(m[1])); if(cfg.endpoint) localStorage.setItem('wcg_endpoint',cfg.endpoint); if(cfg.gameCode) localStorage.setItem('wcg_gameCode',cfg.gameCode); if(cfg.adminPin) localStorage.setItem('wcg_adminPin',cfg.adminPin); history.replaceState(null,'',location.pathname + location.search); }catch(e){} }
+  function saveSettings(){ const endpoint=$('endpoint').value.trim(); const gameCode=$('gameCode').value.trim(); const adminPin=$('settingsAdminPin').value.trim(); const groupName=($('groupName').value.trim()||DEFAULT_GROUP.groupName); const groupCode=normalizeGroupCode($('groupCode').value||groupName); localStorage.setItem('wcg_endpoint',endpoint); localStorage.setItem('wcg_gameCode',gameCode); localStorage.setItem('wcg_adminPin',adminPin); localStorage.setItem('wcg_groupName',groupName); localStorage.setItem('wcg_groupCode',groupCode); $('adminPin').value=adminPin; $('groupCode').value=groupCode; setStatus('settingsStatus','Saved. Now click Test connection.','ok'); applyAccessMode(); updateGroupUI(); showShareLinks(); updateHero(); }
+  function clearSettings(){ ['wcg_endpoint','wcg_gameCode','wcg_adminPin','wcg_groupName','wcg_groupCode'].forEach(k=>localStorage.removeItem(k)); $('endpoint').value=$('gameCode').value=$('adminPin').value=$('settingsAdminPin').value=''; if($('groupName')) $('groupName').value=DEFAULT_GROUP.groupName; if($('groupCode')) $('groupCode').value=DEFAULT_GROUP.groupCode; setStatus('settingsStatus','Local settings cleared.','warn'); applyAccessMode(); updateGroupUI(); showShareLinks(); updateHero(); }
+  function parseSetupHash(){ const m = location.hash.match(/setup=([^&]+)/); if(!m) return; try{ const cfg = JSON.parse(decodeBase64Url(m[1])); if(cfg.endpoint) localStorage.setItem('wcg_endpoint',cfg.endpoint); if(cfg.gameCode) localStorage.setItem('wcg_gameCode',cfg.gameCode); if(cfg.adminPin) localStorage.setItem('wcg_adminPin',cfg.adminPin); if(cfg.groupName) localStorage.setItem('wcg_groupName',cfg.groupName); if(cfg.groupCode) localStorage.setItem('wcg_groupCode',normalizeGroupCode(cfg.groupCode)); history.replaceState(null,'',location.pathname + location.search); }catch(e){} }
   function showShareLinks(){
     const cfg=getCfg(); const qr=$('qrShare');
     if(!cfg.endpoint||!cfg.gameCode){ $('shareBox').textContent='Save endpoint and game code first.'; if(qr) qr.classList.add('hidden'); return; }
     const link=makeShareLink(false); $('shareBox').textContent=link;
     if(qr){ const url=qrUrl(link,360); $('friendQr').src=url; $('downloadQrBtn').href=qrUrl(link,1000); qr.classList.remove('hidden'); }
   }
-  function makeShareLink(admin){ const cfg=getCfg(); const payload={endpoint:cfg.endpoint,gameCode:cfg.gameCode}; if(admin) payload.adminPin=cfg.adminPin; return location.origin + location.pathname + '#setup=' + encodeBase64Url(JSON.stringify(payload)); }
+  function makeShareLink(admin){ const cfg=getCfg(); const payload={endpoint:cfg.endpoint,gameCode:cfg.gameCode,groupName:cfg.groupName,groupCode:cfg.groupCode}; if(admin) payload.adminPin=cfg.adminPin; return location.origin + location.pathname + '#setup=' + encodeBase64Url(JSON.stringify(payload)); }
   function qrUrl(text,size){ const s=Math.max(180,Math.min(Number(size)||360,1000)); return 'https://api.qrserver.com/v1/create-qr-code/?size='+s+'x'+s+'&margin=10&data='+encodeURIComponent(text); }
   async function copyLink(admin){ const link=makeShareLink(admin); await copyText(link); $('shareBox').textContent=link; showShareLinks(); setStatus('settingsStatus', admin?'Admin link copied. Do not share it with friends.':'Friend link copied. Share this link with friends.','ok'); }
-  async function copyShareMessage(){ const link=makeShareLink(false); const msg='Join MTF World Cup Guess and submit your World Cup picks here:\n'+link; await copyText(msg); setStatus('settingsStatus','Friend link and message copied. You can paste it in WhatsApp.','ok'); }
+  async function copyShareMessage(){ const cfg=getCfg(); const link=makeShareLink(false); const msg='Join MTF World Cup Guess - '+cfg.groupName+' and submit your World Cup picks here:\n'+link; await copyText(msg); setStatus('settingsStatus','Friend link and message copied. You can paste it in WhatsApp.','ok'); }
 
   async function ping(show){ const cfg=getCfg(); if(!cfg.endpoint){ if(show) setStatus('settingsStatus','Please paste Apps Script Web App URL first.','bad'); return; } try{ const r=await jsonp({action:'ping'}); if(r.ok){ if(show) setStatus('settingsStatus','Connected successfully: '+r.message,'ok'); $('heroStatus').textContent='Ready for submissions.'; } else throw new Error(r.error||'Ping failed'); }catch(e){ if(show) setStatus('settingsStatus','Connection failed: '+e.message,'bad'); $('heroStatus').textContent='Submission link not connected.'; } }
 
@@ -343,23 +352,39 @@
     const picks=getFormPicks('');
     if(picks.champion && picks.runnerUp && picks.champion===picks.runnerUp){ setStatus('submitStatus','Champion and runner-up cannot be the same team.','bad'); return; }
     setStatus('submitStatus','Submitting your picks...','warn');
-    const data={playerName,contact:$('contact').value.trim(),submittedAt:new Date().toISOString(),picks};
+    const data={playerName,contact:$('contact').value.trim(),groupName:cfg.groupName,groupCode:cfg.groupCode,submittedAt:new Date().toISOString(),picks};
     try{ const r=await jsonp({action:'submitPick',code:cfg.gameCode,payload:encodeBase64Url(JSON.stringify(data))}); if(!r.ok) throw new Error(r.error||'Submit failed'); setStatus('submitStatus',`Submitted successfully for ${r.playerName}. Status: ${r.status}.\nYou can screenshot this page for backup.`, 'ok'); await loadPicks(false); showTab('participants'); } catch(e){ setStatus('submitStatus','Submit failed: '+e.message,'bad'); }
   }
 
   function getFormPicks(prefix){ const id = k => (prefix? prefix + k[0].toUpperCase()+k.slice(1): k); return {champion:val(id('champion')),runnerUp:val(id('runnerUp')),thirdPlace:val(id('thirdPlace')),fourthPlace:val(id('fourthPlace')),goldenBoot:val(id('goldenBoot')),goldenBall:val(id('goldenBall')),goldenGlove:val(id('goldenGlove')),mostAssists:val(id('mostAssists')),highestScoringTeam:val(id('highestScoringTeam')),darkHorse:val(id('darkHorse')),finalWinnerGoals:val(id('finalWinnerGoals')),finalRunnerUpGoals:val(id('finalRunnerUpGoals')),notes:val(id('notes'))}; }
   function val(id){ const el=$(id); return el?String(el.value||'').trim():''; }
 
-  async function loadPicks(show=true){ const cfg=getCfg(); if(!cfg.endpoint||!cfg.gameCode){ setStatus('participantsStatus','Please configure Settings first.','bad'); return; } if(show) setStatus('participantsStatus','Loading from Google Sheet...','warn'); try{ const r=await jsonp({action:'listPicks',code:cfg.gameCode}); if(!r.ok) throw new Error(r.error||'Load failed'); state.picks=r.picks||[]; renderParticipants(); updateHero(); renderSnapshot(); calculateAndRender(false); if(show) setStatus('participantsStatus',`Loaded ${state.picks.length} participant(s). Last refresh: ${new Date().toLocaleString()}`,'ok'); setStatus('dashboardStatus',`Loaded ${state.picks.length} participant(s).`, 'ok'); }catch(e){ setStatus('participantsStatus','Load failed: '+e.message,'bad'); setStatus('dashboardStatus','Load failed: '+e.message,'bad'); } }
+  async function loadPicks(show=true){
+    const cfg=getCfg();
+    if(!cfg.endpoint||!cfg.gameCode){ setStatus('participantsStatus','Please configure Settings first.','bad'); return; }
+    const allGroups = Boolean($('allGroupsToggle') && $('allGroupsToggle').checked && isAdminMode());
+    const params={action:'listPicks',code:cfg.gameCode,groupCode:allGroups?'ALL':cfg.groupCode};
+    if(allGroups) params.adminPin = cfg.adminPin || $('settingsAdminPin').value.trim() || $('adminPin').value.trim();
+    if(show) setStatus('participantsStatus','Loading participants...','warn');
+    try{
+      const r=await jsonp(params);
+      if(!r.ok) throw new Error(r.error||'Load failed');
+      state.picks=r.picks||[];
+      renderParticipants(); updateHero(); renderSnapshot(); calculateAndRender(false);
+      const label = allGroups ? 'all groups' : cfg.groupName;
+      if(show) setStatus('participantsStatus',`Loaded ${state.picks.length} participant(s) for ${label}. Last refresh: ${new Date().toLocaleString()}`,'ok');
+      setStatus('dashboardStatus',`Loaded ${state.picks.length} participant(s) for ${label}.`, 'ok');
+    }catch(e){ setStatus('participantsStatus','Load failed: '+e.message,'bad'); setStatus('dashboardStatus','Load failed: '+e.message,'bad'); }
+  }
   function renderParticipants(){
     const box=$('participantsTable');
-    if(!state.picks.length){box.classList.add('hidden'); box.innerHTML=''; return;}
+    if(!state.picks.length){ box.classList.add('hidden'); box.innerHTML=''; return; }
     box.classList.remove('hidden');
-    if(!isAdminMode()){
-      box.innerHTML=`<table><thead><tr><th>Name</th><th>Joined / Updated</th></tr></thead><tbody>${state.picks.map(p=>`<tr><td><b>${esc(p.playerName)}</b></td><td>${fmtDate(p.updatedAt)}</td></tr>`).join('')}</tbody></table>`;
-      return;
-    }
-    box.innerHTML=`<table><thead><tr><th>Name</th><th>Champion</th><th>Runner-up</th><th>Golden Boot</th><th>Golden Ball</th><th>Golden Glove</th><th>Highest Scoring Team</th><th>Updated</th></tr></thead><tbody>${state.picks.map(p=>`<tr><td><b>${esc(p.playerName)}</b><br><span class="hint">${esc(p.contact||'')}</span></td><td>${esc(p.picks.champion)}</td><td>${esc(p.picks.runnerUp)}</td><td>${esc(p.picks.goldenBoot)}</td><td>${esc(p.picks.goldenBall)}</td><td>${esc(p.picks.goldenGlove)}</td><td>${esc(p.picks.highestScoringTeam)}</td><td>${fmtDate(p.updatedAt)}</td></tr>`).join('')}</tbody></table>`;
+    const admin=isAdminMode();
+    const allGroups = Boolean($('allGroupsToggle') && $('allGroupsToggle').checked && admin);
+    const actionHead = admin ? '<th>Action</th>' : '';
+    const groupHead = allGroups ? '<th>Group</th>' : '';
+    box.innerHTML=`<table><thead><tr>${groupHead}<th>Name</th><th>Champion</th><th>Runner-up</th><th>Golden Boot</th><th>Golden Ball</th><th>Golden Glove</th><th>Highest Scoring Team</th><th>Updated</th>${actionHead}</tr></thead><tbody>${state.picks.map(p=>`<tr>${allGroups?`<td><b>${esc(p.groupName||'Main Group')}</b><br><span class="hint">${esc(p.groupCode||'MAIN')}</span></td>`:''}<td><b>${esc(p.playerName)}</b><br><span class="hint">${esc(p.contact||'')}</span></td><td>${esc(p.picks.champion)}</td><td>${esc(p.picks.runnerUp)}</td><td>${esc(p.picks.goldenBoot)}</td><td>${esc(p.picks.goldenBall)}</td><td>${esc(p.picks.goldenGlove)}</td><td>${esc(p.picks.highestScoringTeam)}</td><td>${fmtDate(p.updatedAt)}</td>${admin?`<td><button class="danger mini" data-delete-row="${esc(p.rowNumber||'')}" data-delete-name="${esc(p.playerName)}">Delete</button></td>`:''}</tr>`).join('')}</tbody></table>`;
   }
   function renderSnapshot(){ if(!state.picks.length){$('snapshotBox').textContent='No picks yet.'; return;} const keys=['champion','runnerUp','goldenBoot','highestScoringTeam']; $('snapshotBox').innerHTML = keys.map(k=>{ const c=countBy(state.picks.map(p=>p.picks[k]).filter(Boolean)); const top=Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,4); return `<p><b>${POINT_LABELS[k]||k}:</b> ${top.map(([n,v])=>`${esc(n)} <span class="pill">${v}</span>`).join(' &nbsp; ') || 'No picks'}</p>`; }).join(''); }
   function countBy(arr){ return arr.reduce((a,x)=>{a[x]=(a[x]||0)+1;return a;},{}); }
@@ -372,17 +397,43 @@
   function scorePick(p){ const picks=p.picks||{}; const r=state.results||{}; let total=0; const detail=[]; Object.keys(DEFAULT_POINTS).forEach(k=>{ if(k==='finalScore') return; const got=norm(picks[k]) && norm(picks[k])===norm(r[k]); if(got){ total += Number(state.points[k]||0); detail.push(`${POINT_LABELS[k]} +${state.points[k]||0}`); } }); if(norm(picks.finalWinnerGoals) && norm(picks.finalRunnerUpGoals) && norm(picks.finalWinnerGoals)===norm(r.finalWinnerGoals) && norm(picks.finalRunnerUpGoals)===norm(r.finalRunnerUpGoals)){ total += Number(state.points.finalScore||0); detail.push(`Exact final score +${state.points.finalScore||0}`); } return {name:p.playerName,contact:p.contact,total,detail,picks}; }
   function renderLeaderboard(rows,boxId){ const box=$(boxId); if(!rows.length){box.classList.add('hidden'); box.innerHTML=''; return;} box.classList.remove('hidden'); box.innerHTML=`<table><thead><tr><th>Rank</th><th>Player</th><th>Points</th><th>Scoring Detail</th><th>Champion Pick</th></tr></thead><tbody>${rows.map((r,i)=>`<tr><td class="leader">${i+1}</td><td><b>${esc(r.name)}</b><br><span class="hint">${esc(r.contact||'')}</span></td><td><b>${r.total}</b></td><td>${r.detail.length?r.detail.map(esc).join('<br>'):'-'}</td><td>${esc(r.picks.champion||'')}</td></tr>`).join('')}</tbody></table>`; }
 
-  function exportCsv(){ if(!state.picks.length){ setStatus('participantsStatus','Load participants first.','warn'); return;} const headers=['PlayerName','Contact','Champion','RunnerUp','ThirdPlace','FourthPlace','GoldenBoot','GoldenBall','GoldenGlove','MostAssists','HighestScoringTeam','DarkHorse','FinalWinnerGoals','FinalRunnerUpGoals','UpdatedAt']; const rows=state.picks.map(p=>[p.playerName,p.contact,p.picks.champion,p.picks.runnerUp,p.picks.thirdPlace,p.picks.fourthPlace,p.picks.goldenBoot,p.picks.goldenBall,p.picks.goldenGlove,p.picks.mostAssists,p.picks.highestScoringTeam,p.picks.darkHorse,p.picks.finalWinnerGoals,p.picks.finalRunnerUpGoals,p.updatedAt]); download('MTF-WorldCupGuess-picks.csv',[headers,...rows].map(r=>r.map(csvCell).join(',')).join('\n'),'text/csv'); }
+
+  function onParticipantsClick(ev){
+    const btn = ev.target.closest('[data-delete-row]');
+    if(!btn) return;
+    deletePick(btn.dataset.deleteRow, btn.dataset.deleteName || 'this participant');
+  }
+  async function deletePick(rowNumber, name){
+    const cfg=getCfg();
+    const pin=$('settingsAdminPin').value.trim() || $('adminPin').value.trim();
+    if(!cfg.endpoint||!cfg.gameCode){ setStatus('participantsStatus','Please configure Settings first.','bad'); return; }
+    if(!pin){ setStatus('participantsStatus','Admin PIN is required to delete a submission. Open your admin link or enter PIN in Admin Settings.','bad'); return; }
+    if(!rowNumber){ setStatus('participantsStatus','This entry has no row number. Click Refresh Participants and try again.','bad'); return; }
+    if(!confirm('Delete submission for '+name+'? This will remove it from the Google Sheet.')) return;
+    setStatus('participantsStatus','Deleting submission for '+name+'...','warn');
+    try{
+      const r=await jsonp({action:'deletePick',code:cfg.gameCode,adminPin:pin,rowNumber:rowNumber});
+      if(!r.ok) throw new Error(r.error||'Delete failed');
+      await loadPicks(false);
+      setStatus('participantsStatus','Deleted submission for '+name+'.','ok');
+    }catch(e){
+      setStatus('participantsStatus','Delete failed: '+e.message,'bad');
+    }
+  }
+
+  function exportCsv(){ if(!state.picks.length){ setStatus('participantsStatus','Load participants first.','warn'); return;} const headers=['GroupName','GroupCode','PlayerName','Contact','Champion','RunnerUp','ThirdPlace','FourthPlace','GoldenBoot','GoldenBall','GoldenGlove','MostAssists','HighestScoringTeam','DarkHorse','FinalWinnerGoals','FinalRunnerUpGoals','UpdatedAt']; const rows=state.picks.map(p=>[p.groupName||'Main Group',p.groupCode||'MAIN',p.playerName,p.contact,p.picks.champion,p.picks.runnerUp,p.picks.thirdPlace,p.picks.fourthPlace,p.picks.goldenBoot,p.picks.goldenBall,p.picks.goldenGlove,p.picks.mostAssists,p.picks.highestScoringTeam,p.picks.darkHorse,p.picks.finalWinnerGoals,p.picks.finalRunnerUpGoals,p.updatedAt]); download('MTF-WorldCupGuess-picks.csv',[headers,...rows].map(r=>r.map(csvCell).join(',')).join('\n'),'text/csv'); }
   function exportJson(){ if(!state.picks.length){ setStatus('participantsStatus','Load participants first.','warn'); return;} download('MTF-WorldCupGuess-picks.json',JSON.stringify({picks:state.picks,exportedAt:new Date().toISOString()},null,2),'application/json'); }
   function download(name,text,type){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; a.click(); URL.revokeObjectURL(a.href); }
   function csvCell(v){ v=String(v??''); return '"'+v.replace(/"/g,'""')+'"'; }
-  async function clearPicks(){ const cfg=getCfg(); const pin=$('settingsAdminPin').value.trim() || $('adminPin').value.trim(); if(!confirm('Clear all submitted picks from Google Sheet?')) return; try{ const r=await jsonp({action:'clearPicks',code:cfg.gameCode,adminPin:pin}); if(!r.ok) throw new Error(r.error||'Clear failed'); state.picks=[]; renderParticipants(); updateHero(); setStatus('dangerStatus','All picks cleared.','ok'); }catch(e){ setStatus('dangerStatus','Clear failed: '+e.message,'bad'); } }
+  async function clearPicks(){ const cfg=getCfg(); const pin=$('settingsAdminPin').value.trim() || $('adminPin').value.trim(); if(!confirm('Clear all submitted picks for '+cfg.groupName+' only?')) return; try{ const r=await jsonp({action:'clearPicks',code:cfg.gameCode,adminPin:pin,groupCode:cfg.groupCode}); if(!r.ok) throw new Error(r.error||'Clear failed'); state.picks=[]; renderParticipants(); updateHero(); setStatus('dangerStatus','Current group picks cleared. Other groups were not touched.','ok'); }catch(e){ setStatus('dangerStatus','Clear failed: '+e.message,'bad'); } }
   async function copySummary(){ const rows=calculateAndRender(false); const text=rows.length? rows.map((r,i)=>`${i+1}. ${r.name} - ${r.total} pts`).join('\n') : 'No scores yet.'; await copyText(text); setStatus('dashboardStatus','Summary copied.','ok'); }
 
   function jsonp(params){ return new Promise((resolve,reject)=>{ const cfg=getCfg(); const endpoint=(cfg.endpoint||'').trim(); if(!endpoint) return reject(new Error('Apps Script URL not configured.')); const cb='wcg_cb_'+Date.now()+'_'+Math.floor(Math.random()*999999); params.callback=cb; const qs=Object.entries(params).filter(([,v])=>v!==undefined&&v!==null).map(([k,v])=>encodeURIComponent(k)+'='+encodeURIComponent(v)).join('&'); const s=document.createElement('script'); const timer=setTimeout(()=>{cleanup(); reject(new Error('Request timed out. Check Apps Script deployment/access.'));},20000); function cleanup(){clearTimeout(timer); delete window[cb]; s.remove();} window[cb]=(data)=>{cleanup(); resolve(data);}; s.onerror=()=>{cleanup(); reject(new Error('Script request failed. Check URL ending /exec.'));}; s.src=endpoint + (endpoint.includes('?')?'&':'?') + qs; document.body.appendChild(s); }); }
   function encodeBase64Url(str){ const bytes=new TextEncoder().encode(str); let bin=''; bytes.forEach(b=>bin+=String.fromCharCode(b)); return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }
   function decodeBase64Url(str){ let s=str.replace(/-/g,'+').replace(/_/g,'/'); while(s.length%4) s+='='; const bin=atob(s); const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0)); return new TextDecoder().decode(bytes); }
-  function updateHero(){ $('heroCount').textContent=state.picks.length||0; const cfg=getCfg(); $('heroStatus').textContent=cfg.endpoint?'Ready for submissions.':'Open for setup.'; }
+  function updateHero(){ $('heroCount').textContent=state.picks.length||0; const cfg=getCfg(); $('heroStatus').textContent=cfg.endpoint?('Ready: '+cfg.groupName):'Open for setup.'; updateGroupUI(); }
+  function updateGroupUI(){ const cfg=getCfg(); if($('groupBanner')) $('groupBanner').textContent='Group: '+cfg.groupName; if($('shareBox') && cfg.endpoint && cfg.gameCode) $('shareBox').textContent=makeShareLink(false); }
+  function normalizeGroupCode(v){ return String(v||'').trim().toUpperCase().replace(/[^A-Z0-9_-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40) || DEFAULT_GROUP.groupCode; }
   function setStatus(id,msg,type){ const el=$(id); if(!el) return; el.textContent=msg; el.className='status '+(type||''); }
   function fmtDate(d){ if(!d) return ''; const dt=new Date(d); return isNaN(dt)?esc(d):dt.toLocaleString(); }
   function esc(v){ return String(v??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch])); }
