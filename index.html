@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Cup Friends Predictor</title>
+  <meta name="description" content="A fun World Cup prediction game for friends: pick champion, runner-up, Golden Boot and more, then calculate the final leaderboard." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">World Cup 2026 • Friends Game</p>
+        <h1>World Cup Friends Predictor</h1>
+        <p class="hero-copy">Pick the champion, runner-up, Golden Boot winner and more. After the tournament, enter the real results and the app will calculate the winner of your friends group.</p>
+      </div>
+      <div class="hero-card" aria-label="Game status summary">
+        <div class="hero-score" id="heroParticipants">0</div>
+        <div class="hero-label">players joined</div>
+        <div class="hero-mini" id="heroStatus">Open for picks</div>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Main sections">
+      <button class="tab active" data-tab="dashboard">Dashboard</button>
+      <button class="tab" data-tab="submit">Submit Picks</button>
+      <button class="tab" data-tab="participants">Participants</button>
+      <button class="tab" data-tab="results">Results & Scoring</button>
+      <button class="tab" data-tab="settings">Settings</button>
+    </nav>
+
+    <main>
+      <section class="panel active" id="dashboard">
+        <div class="grid two">
+          <article class="card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Live table</p>
+                <h2>Leaderboard</h2>
+              </div>
+              <button class="ghost" id="refreshLeaderboard">Refresh</button>
+            </div>
+            <div id="leaderboard" class="leaderboard empty-state"></div>
+          </article>
+
+          <article class="card accent-card">
+            <p class="eyebrow">Recommended game rule</p>
+            <h2>Simple and fair scoring</h2>
+            <p>Give bigger points for the harder predictions and smaller bonus points for fun categories. You can change the points anytime before final scoring.</p>
+            <div class="score-chip-list" id="scoreChips"></div>
+          </article>
+        </div>
+
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Quick snapshot</p>
+              <h2>Current friend picks</h2>
+            </div>
+            <button class="ghost" id="copySummary">Copy summary</button>
+          </div>
+          <div id="pickSummary" class="summary-grid"></div>
+        </article>
+      </section>
+
+      <section class="panel" id="submit">
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Entry form</p>
+              <h2>Submit a friend's picks</h2>
+            </div>
+            <span class="status-pill" id="lockPill">Open</span>
+          </div>
+          <p class="hint">Golden Boot and highest goal scorer are treated as the same category by default. Player fields accept custom names, so your friends can pick anyone.</p>
+          <form id="pickForm" class="pick-form">
+            <label class="full">
+              Friend name
+              <input id="playerName" name="playerName" placeholder="e.g. Thiha" required maxlength="40" />
+            </label>
+            <div id="pickFields" class="form-grid"></div>
+            <div class="actions full">
+              <button type="submit" class="primary">Save picks</button>
+              <button type="button" class="secondary" id="clearForm">Clear</button>
+              <button type="button" class="ghost" id="loadFunPick">Load fun sample</button>
+            </div>
+          </form>
+        </article>
+      </section>
+
+      <section class="panel" id="participants">
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Manage entries</p>
+              <h2>Participants</h2>
+            </div>
+            <div class="button-row">
+              <button class="secondary" id="exportJson">Export JSON</button>
+              <button class="secondary" id="exportCsv">Export CSV</button>
+              <label class="file-button">
+                Import JSON
+                <input type="file" id="importJson" accept="application/json" />
+              </label>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table id="participantsTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Champion</th>
+                  <th>Runner-up</th>
+                  <th>Golden Boot</th>
+                  <th>Points</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="results">
+        <div class="grid two">
+          <article class="card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Admin</p>
+                <h2>Enter actual final results</h2>
+              </div>
+              <button class="ghost" id="resetActuals">Reset actuals</button>
+            </div>
+            <p class="hint">After the World Cup, fill in the confirmed winners below. Then the leaderboard will update automatically.</p>
+            <form id="actualForm" class="pick-form">
+              <div id="actualFields" class="form-grid"></div>
+              <div class="actions full">
+                <button type="submit" class="primary">Save actual results</button>
+              </div>
+            </form>
+          </article>
+
+          <article class="card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Scoring details</p>
+                <h2>Score breakdown</h2>
+              </div>
+              <button class="secondary" id="downloadScoreCsv">Download score CSV</button>
+            </div>
+            <div id="breakdown" class="breakdown empty-state"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="settings">
+        <div class="grid two">
+          <article class="card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Game controls</p>
+                <h2>Lock and reset</h2>
+              </div>
+            </div>
+            <div class="settings-list">
+              <label class="switch-row">
+                <span>
+                  <strong>Lock submissions</strong>
+                  <small>Use this when your group's prediction deadline is over.</small>
+                </span>
+                <input type="checkbox" id="lockSubmissions" />
+              </label>
+              <button class="danger" id="clearAll">Clear all app data</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Customize</p>
+                <h2>Points system</h2>
+              </div>
+              <button class="ghost" id="resetScoring">Reset default</button>
+            </div>
+            <div id="scoringSettings" class="scoring-settings"></div>
+          </article>
+        </div>
+
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Data</p>
+              <h2>Teams and player suggestions</h2>
+            </div>
+          </div>
+          <p class="hint">Team options are stored in <code>js/app.js</code>. Player suggestions are only suggestions — users can still type custom names.</p>
+          <div id="teamCloud" class="team-cloud"></div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made for friendly competition. No betting features, no login, no server.</p>
+    </footer>
+  </div>
+
+  <datalist id="teamOptions"></datalist>
+  <datalist id="playerOptions"></datalist>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
