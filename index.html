@@ -162,8 +162,8 @@
         <label class="label">Apps Script Web App URL</label><input id="endpoint" placeholder="https://script.google.com/macros/s/.../exec" />
         <label class="label">Game Code</label><input id="gameCode" placeholder="Must match GAME_CODE in Code.gs" />
         <div class="row">
-          <div><label class="label">Current group name</label><input id="groupName" placeholder="e.g. MTF Friends" /></div>
-          <div><label class="label">Group code</label><input id="groupCode" placeholder="e.g. MTF" /></div>
+          <div><label class="label">Current group name</label><input id="groupName" placeholder="e.g. Friends Group" /></div>
+          <div><label class="label">Group code</label><input id="groupCode" placeholder="e.g. FRIENDS" /></div>
         </div>
         <p class="hint">Each group gets its own friend link and QR code. Existing old entries are kept under Main Group / MAIN.</p>
         <label class="label">Admin PIN</label><input id="settingsAdminPin" type="password" placeholder="Optional on this device only" />
@@ -182,7 +182,7 @@
             <div class="share-title">QR code for friends</div>
             <p class="hint">Friends can scan this QR code to open the submission page. It uses the friend link only, not your admin PIN.</p>
             <div class="actions">
-              <a class="btn primary" id="downloadQrBtn" href="#" target="_blank" rel="noopener" download="MTF-WorldCupGuess-QR.png">Open / download QR</a>
+              <a class="btn primary" id="downloadQrBtn" href="#" target="_blank" rel="noopener" download="WorldCupGuess-QR.png">Open / download QR</a>
               <button id="copyShareMessageBtn" type="button">Copy link + message</button>
             </div>
           </div>
@@ -421,8 +421,9 @@
     }
   }
 
-  function exportCsv(){ if(!state.picks.length){ setStatus('participantsStatus','Load participants first.','warn'); return;} const headers=['GroupName','GroupCode','PlayerName','Contact','Champion','RunnerUp','ThirdPlace','FourthPlace','GoldenBoot','GoldenBall','GoldenGlove','MostAssists','HighestScoringTeam','DarkHorse','FinalWinnerGoals','FinalRunnerUpGoals','UpdatedAt']; const rows=state.picks.map(p=>[p.groupName||'Main Group',p.groupCode||'MAIN',p.playerName,p.contact,p.picks.champion,p.picks.runnerUp,p.picks.thirdPlace,p.picks.fourthPlace,p.picks.goldenBoot,p.picks.goldenBall,p.picks.goldenGlove,p.picks.mostAssists,p.picks.highestScoringTeam,p.picks.darkHorse,p.picks.finalWinnerGoals,p.picks.finalRunnerUpGoals,p.updatedAt]); download('MTF-WorldCupGuess-picks.csv',[headers,...rows].map(r=>r.map(csvCell).join(',')).join('\n'),'text/csv'); }
-  function exportJson(){ if(!state.picks.length){ setStatus('participantsStatus','Load participants first.','warn'); return;} download('MTF-WorldCupGuess-picks.json',JSON.stringify({picks:state.picks,exportedAt:new Date().toISOString()},null,2),'application/json'); }
+  function exportCsv(){ if(!state.picks.length){ setStatus('participantsStatus','Load participants first.','warn'); return;} const headers=['GroupName','GroupCode','PlayerName','Contact','Champion','RunnerUp','ThirdPlace','FourthPlace','GoldenBoot','GoldenBall','GoldenGlove','MostAssists','HighestScoringTeam','DarkHorse','FinalWinnerGoals','FinalRunnerUpGoals','UpdatedAt']; const rows=state.picks.map(p=>[p.groupName||'Main Group',p.groupCode||'MAIN',p.playerName,p.contact,p.picks.champion,p.picks.runnerUp,p.picks.thirdPlace,p.picks.fourthPlace,p.picks.goldenBoot,p.picks.goldenBall,p.picks.goldenGlove,p.picks.mostAssists,p.picks.highestScoringTeam,p.picks.darkHorse,p.picks.finalWinnerGoals,p.picks.finalRunnerUpGoals,p.updatedAt]); download('WorldCupGuess-picks.csv',[headers,...rows].map(r=>r.map(csvCell).join(',')).join('
+'),'text/csv'); }
+  function exportJson(){ if(!state.picks.length){ setStatus('participantsStatus','Load participants first.','warn'); return;} download('WorldCupGuess-picks.json',JSON.stringify({picks:state.picks,exportedAt:new Date().toISOString()},null,2),'application/json'); }
   function download(name,text,type){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; a.click(); URL.revokeObjectURL(a.href); }
   function csvCell(v){ v=String(v??''); return '"'+v.replace(/"/g,'""')+'"'; }
   async function clearPicks(){ const cfg=getCfg(); const pin=$('settingsAdminPin').value.trim() || $('adminPin').value.trim(); if(!confirm('Clear all submitted picks for '+cfg.groupName+' only?')) return; try{ const r=await jsonp({action:'clearPicks',code:cfg.gameCode,adminPin:pin,groupCode:cfg.groupCode}); if(!r.ok) throw new Error(r.error||'Clear failed'); state.picks=[]; renderParticipants(); updateHero(); setStatus('dangerStatus','Current group picks cleared. Other groups were not touched.','ok'); }catch(e){ setStatus('dangerStatus','Clear failed: '+e.message,'bad'); } }
