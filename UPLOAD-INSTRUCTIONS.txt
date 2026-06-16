@@ -1,1 +1,0 @@
-Upload index.html and .nojekyll to your repository root. Replace the old index.html. Then wait for GitHub Pages and press Ctrl+F5.
