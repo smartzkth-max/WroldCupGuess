@@ -87,7 +87,7 @@
         </div>
         <label class="label">Notes / banter</label><textarea id="notes" placeholder="Optional comment"></textarea>
         <div class="actions"><button class="primary" type="submit">Save to Google Sheet</button><button type="button" id="resetFormBtn">Clear form</button></div>
-        <div id="submitStatus" class="status">Before friends can submit, configure the Google Apps Script URL in Settings.</div>
+        <div id="submitStatus" class="status hidden"></div>
       </form>
     </div>
   </section>
@@ -313,7 +313,7 @@
 
   async function ping(show){ const cfg=getCfg(); if(!cfg.endpoint){ if(show) setStatus('settingsStatus','Please paste Apps Script Web App URL first.','bad'); return; } try{ const r=await jsonp({action:'ping'}); if(r.ok){ if(show) setStatus('settingsStatus','Connected successfully: '+r.message,'ok'); $('heroStatus').textContent='Google Sheets connected.'; } else throw new Error(r.error||'Ping failed'); }catch(e){ if(show) setStatus('settingsStatus','Connection failed: '+e.message,'bad'); $('heroStatus').textContent='Database not connected.'; } }
 
-  async function submitPick(ev){ ev.preventDefault(); const cfg=getCfg(); if(!cfg.endpoint||!cfg.gameCode){ setStatus('submitStatus','Please configure Settings first.','bad'); showTab('settings'); return; }
+  async function submitPick(ev){ ev.preventDefault(); const cfg=getCfg(); if(!cfg.endpoint||!cfg.gameCode){ setStatus('submitStatus','This submission link is not connected yet. Please ask the organiser for the latest friend link.','bad'); return; }
     const playerName=$('playerName').value.trim(); if(!playerName){ setStatus('submitStatus','Your name is required.','bad'); return; }
     const picks=getFormPicks('');
     if(picks.champion && picks.runnerUp && picks.champion===picks.runnerUp){ setStatus('submitStatus','Champion and runner-up cannot be the same team.','bad'); return; }
