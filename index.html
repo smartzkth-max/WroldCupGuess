@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>World Cup Guess</title>
+  <!-- App version: v9, cache-busted friend links -->
   <style>
     :root{--bg:#07111f;--panel:#162232;--panel2:#1d2a3c;--text:#f6f8fb;--muted:#aebbd0;--line:#304057;--accent:#4ee0a1;--accent2:#7dd3fc;--danger:#fb7185;--warn:#fbbf24;--shadow:0 20px 70px rgba(0,0,0,.35);--radius:24px}
     *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top,#13223a 0,#07111f 45%,#050b14 100%);color:var(--text);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
@@ -54,7 +55,7 @@
         <div class="cards">
           <div class="stat"><span class="hint">Champion</span><br><b>40</b></div>
           <div class="stat"><span class="hint">Runner-up</span><br><b>30</b></div>
-          <div class="stat"><span class="hint">Golden Boot</span><br><b>20</b></div>
+          <div class="stat"><span class="hint">Top Goal Scorer</span><br><b>20</b></div>
           <div class="stat"><span class="hint">Bonus categories</span><br><b>10–15</b></div>
         </div>
       </div>
@@ -83,7 +84,7 @@
           <div><label class="label">Surprise / dark horse team</label><select id="darkHorse"></select></div>
         </div>
         <div class="row3">
-          <div><label class="label">Golden Boot / top scorer</label><input id="goldenBoot" list="playersList" placeholder="e.g. Kylian Mbappé" /></div>
+          <div><label class="label">Top Goal Scorer</label><input id="goldenBoot" list="playersList" placeholder="e.g. Kylian Mbappé" /></div>
           <div><label class="label">Golden Ball</label><input id="goldenBall" list="playersList" placeholder="Best player" /></div>
           <div><label class="label">Golden Glove</label><select id="goldenGlove"></select></div>
         </div>
@@ -128,7 +129,7 @@
           <div><label class="label">Dark horse winner</label><select id="resDarkHorse"></select></div>
         </div>
         <div class="row3">
-          <div><label class="label">Golden Boot</label><input id="resGoldenBoot" list="playersList" /></div>
+          <div><label class="label">Top Goal Scorer</label><input id="resGoldenBoot" list="playersList" /></div>
           <div><label class="label">Golden Ball</label><input id="resGoldenBall" list="playersList" /></div>
           <div><label class="label">Golden Glove</label><select id="resGoldenGlove"></select></div>
         </div>
@@ -253,7 +254,7 @@
     'Lionel Mpasi','Utkir Yusupov','Lawrence Ati-Zigi','Orlando Mosquera'
   ];
   const DEFAULT_POINTS = {champion:40,runnerUp:30,thirdPlace:15,fourthPlace:10,goldenBoot:20,goldenBall:15,goldenGlove:12,mostAssists:12,highestScoringTeam:12,darkHorse:10,finalScore:10};
-  const POINT_LABELS = {champion:'Champion',runnerUp:'Runner-up',thirdPlace:'Third place',fourthPlace:'Fourth place',goldenBoot:'Golden Boot',goldenBall:'Golden Ball',goldenGlove:'Golden Glove',mostAssists:'Most assists',highestScoringTeam:'Highest scoring team',darkHorse:'Dark horse',finalScore:'Exact final score'};
+  const POINT_LABELS = {champion:'Champion',runnerUp:'Runner-up',thirdPlace:'Third place',fourthPlace:'Fourth place',goldenBoot:'Top Goal Scorer',goldenBall:'Golden Ball',goldenGlove:'Golden Glove',mostAssists:'Most assists',highestScoringTeam:'Highest scoring team',darkHorse:'Dark horse',finalScore:'Exact final score'};
   const state = {picks:[], results:{}, points:{...DEFAULT_POINTS}};
   const DEFAULT_GROUP = {groupName:'Main Group', groupCode:'MAIN'};
   const $ = id => document.getElementById(id);
@@ -341,7 +342,7 @@
     const link=makeShareLink(false); $('shareBox').textContent=link;
     if(qr){ const url=qrUrl(link,360); $('friendQr').src=url; $('downloadQrBtn').href=qrUrl(link,1000); qr.classList.remove('hidden'); }
   }
-  function makeShareLink(admin){ const cfg=getCfg(); const payload={endpoint:cfg.endpoint,gameCode:cfg.gameCode,groupName:cfg.groupName,groupCode:cfg.groupCode}; if(admin) payload.adminPin=cfg.adminPin; return location.origin + location.pathname + '#setup=' + encodeBase64Url(JSON.stringify(payload)); }
+  function makeShareLink(admin){ const cfg=getCfg(); const payload={endpoint:cfg.endpoint,gameCode:cfg.gameCode,groupName:cfg.groupName,groupCode:cfg.groupCode}; if(admin) payload.adminPin=cfg.adminPin; const ver='v=9'; return location.origin + location.pathname + '?' + ver + '#setup=' + encodeBase64Url(JSON.stringify(payload)); }
   function qrUrl(text,size){ const s=Math.max(180,Math.min(Number(size)||360,1000)); return 'https://api.qrserver.com/v1/create-qr-code/?size='+s+'x'+s+'&margin=10&data='+encodeURIComponent(text); }
   async function copyLink(admin){ const link=makeShareLink(admin); await copyText(link); $('shareBox').textContent=link; showShareLinks(); setStatus('settingsStatus', admin?'Admin link copied. Do not share it with friends.':'Friend link copied. Share this link with friends.','ok'); }
   async function copyShareMessage(){ const cfg=getCfg(); const link=makeShareLink(false); const msg='Join World Cup Guess - '+cfg.groupName+' and submit your World Cup picks here:\n'+link; await copyText(msg); setStatus('settingsStatus','Friend link and message copied. You can paste it in WhatsApp.','ok'); }
@@ -385,7 +386,7 @@
     const allGroups = Boolean($('allGroupsToggle') && $('allGroupsToggle').checked && admin);
     const actionHead = admin ? '<th>Action</th>' : '';
     const groupHead = allGroups ? '<th>Group</th>' : '';
-    box.innerHTML=`<table><thead><tr>${groupHead}<th>Name</th><th>Champion</th><th>Runner-up</th><th>Golden Boot</th><th>Golden Ball</th><th>Golden Glove</th><th>Highest Scoring Team</th><th>Updated</th>${actionHead}</tr></thead><tbody>${state.picks.map(p=>`<tr>${allGroups?`<td><b>${esc(p.groupName||'Main Group')}</b><br><span class="hint">${esc(p.groupCode||'MAIN')}</span></td>`:''}<td><b>${esc(p.playerName)}</b><br><span class="hint">${esc(p.contact||'')}</span></td><td>${esc(p.picks.champion)}</td><td>${esc(p.picks.runnerUp)}</td><td>${esc(p.picks.goldenBoot)}</td><td>${esc(p.picks.goldenBall)}</td><td>${esc(p.picks.goldenGlove)}</td><td>${esc(p.picks.highestScoringTeam)}</td><td>${fmtDate(p.updatedAt)}</td>${admin?`<td><button class="danger mini" data-delete-row="${esc(p.rowNumber||'')}" data-delete-name="${esc(p.playerName)}">Delete</button></td>`:''}</tr>`).join('')}</tbody></table>`;
+    box.innerHTML=`<table><thead><tr>${groupHead}<th>Name</th><th>Champion</th><th>Runner-up</th><th>Top Goal Scorer</th><th>Golden Ball</th><th>Golden Glove</th><th>Highest Scoring Team</th><th>Updated</th>${actionHead}</tr></thead><tbody>${state.picks.map(p=>`<tr>${allGroups?`<td><b>${esc(p.groupName||'Main Group')}</b><br><span class="hint">${esc(p.groupCode||'MAIN')}</span></td>`:''}<td><b>${esc(p.playerName)}</b><br><span class="hint">${esc(p.contact||'')}</span></td><td>${esc(p.picks.champion)}</td><td>${esc(p.picks.runnerUp)}</td><td>${esc(p.picks.goldenBoot)}</td><td>${esc(p.picks.goldenBall)}</td><td>${esc(p.picks.goldenGlove)}</td><td>${esc(p.picks.highestScoringTeam)}</td><td>${fmtDate(p.updatedAt)}</td>${admin?`<td><button class="danger mini" data-delete-row="${esc(p.rowNumber||'')}" data-delete-name="${esc(p.playerName)}">Delete</button></td>`:''}</tr>`).join('')}</tbody></table>`;
   }
   function renderSnapshot(){ if(!state.picks.length){$('snapshotBox').textContent='No picks yet.'; return;} const keys=['champion','runnerUp','goldenBoot','highestScoringTeam']; $('snapshotBox').innerHTML = keys.map(k=>{ const c=countBy(state.picks.map(p=>p.picks[k]).filter(Boolean)); const top=Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,4); return `<p><b>${POINT_LABELS[k]||k}:</b> ${top.map(([n,v])=>`${esc(n)} <span class="pill">${v}</span>`).join(' &nbsp; ') || 'No picks'}</p>`; }).join(''); }
   function countBy(arr){ return arr.reduce((a,x)=>{a[x]=(a[x]||0)+1;return a;},{}); }
